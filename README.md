@@ -30,7 +30,6 @@ ShadowScan performs passive reconnaissance on a target URL, domain, or IP and ge
 | 🌍 Subdomains | DNS brute-force (wordlist) + Certificate Transparency (crt.sh) |
 | 💧 Leaks | Email addresses from HTML, JS, robots.txt, sitemap, contact pages |
 | ⚙️ Technologies | WordPress, Drupal, Joomla, React, Next.js, Vue.js, Webpack |
-| 📊 Risk Score | Weighted scoring → LOW / MEDIUM / HIGH / CRITICAL |
 
 ---
 
