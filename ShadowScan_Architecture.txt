@@ -1,0 +1,16 @@
+ShadowScan/
+├── core/
+│   ├── resolver.py      # URL / DOMAIN / IP
+│   ├── ports.py         # server scan
+│   ├── dns.py
+│   ├── ssl.py
+│   ├── headers.py
+│   ├── dirs.py
+│   ├── cms.py
+│   ├── api.py
+│   ├── leaks.py
+│   └── risk.py
+├── reports/
+│   ├── json/
+│   └── html/
+├── shadowscan.py

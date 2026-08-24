@@ -1,0 +1,30 @@
+# Reports (may contain sensitive client data)
+reports/json/*.json
+reports/html/*.html
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets / env files
+.env
+*.key
+*.pem
