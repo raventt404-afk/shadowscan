@@ -40,7 +40,7 @@ ShadowScan performs passive reconnaissance on a target URL, domain, or IP and ge
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/YOUR_USERNAME/ShadowScan.git
+git clone https://github.com/raventt404-afk/shadowscan.git
 cd ShadowScan
 
 # 2. Install dependencies
