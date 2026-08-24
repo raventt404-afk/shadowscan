@@ -145,7 +145,6 @@ ShadowScan/
 │   ├── leaks.py           # Email & secret leak detection
 │   ├── vuln_surface.py    # Vulnerability surface scan
 │   ├── infra_intel.py     # Geo / ASN / reverse DNS
-│   ├── risk.py            # Risk scoring engine
 │   └── report_html.py     # HTML report generator
 └── reports/
     ├── json/              # Raw JSON reports
