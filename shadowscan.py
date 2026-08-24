@@ -173,13 +173,8 @@ def main():
 
     # ── Summary ───────────────────────────────────────────────────────────────
     risk = data["risk"]
-    risk_icons = {"CRITICAL": "🔴", "HIGH": "🟠", "MEDIUM": "🟡", "LOW": "🟢"}
-    icon = risk_icons.get(risk["level"], "⚪")
 
     print(f"\n{'─'*60}")
-    print(f"  {icon}  RISK LEVEL: {risk['level']}  (score: {risk['score']})")
-    print(f"{'─'*60}")
-
     if risk.get("reasons"):
         print("\n  Key findings:")
         for r in risk["reasons"][:8]:

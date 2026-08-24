@@ -210,7 +210,7 @@ def generate_html_report(data: dict, output_path: str):
   body {{ font-family: 'Segoe UI', Arial, sans-serif; background: #0f172a; color: #e2e8f0; }}
   .header {{
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-    border-bottom: 3px solid {risk_color};
+    border-bottom: 3px solid #7dd3fc;
     padding: 32px 48px;
   }}
   .header h1 {{ font-size: 28px; color: #f8fafc; }}
@@ -274,15 +274,11 @@ def generate_html_report(data: dict, output_path: str):
     <strong>Generated:</strong> {ts[:19].replace("T", " ")} &nbsp;|&nbsp;
     <strong>IP:</strong> {target.get("ip") or "—"}
   </div>
-  <div class="risk-badge">{RISK_EMOJI.get(risk_level, "⚪")} Risk Level: {risk_level}</div>
-  <div class="score-box"><span>{risk_score}</span><small>Risk Score</small></div>
 </div>
 
 <div class="content">
 
   <div class="grid">
-
-    {_section("Risk Summary", risk_html, "⚠️")}
 
     {_section("SSL Certificate", ssl_html, "🔒")}
 
