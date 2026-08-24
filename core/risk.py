@@ -46,15 +46,26 @@ def calculate_risk(data: dict):
         score += 1
         reasons.append(f"X-Powered-By header leaks server info: {powered_by}")
 
-    # 4. Directories / sensitive files
+    # 4. Directories / sensitive files — only count HTTP 200 (actually accessible)
     for d in data.get("paths", []):
-        path = d if isinstance(d, str) else d.get("path", "")
-        if any(critical in path for critical in ["/.env", "/.git", "/backup", "wp-config"]):
+        if isinstance(d, dict):
+            path = d.get("path", "")
+            status = d.get("status")
+        else:
+            path = str(d)
+            status = None
+
+        # 403 = forbidden (protected), 301/302 = redirect — NOT a real exposure
+        # Only flag if status is 200 (file actually returned content)
+        if status != 200:
+            continue
+
+        if any(critical in path for critical in ["/.env", "/.git", "/backup", "wp-config", "phpinfo"]):
             score += 10
-            reasons.append(f"Critical file/path exposed: {path}")
-        elif any(sensitive in path for sensitive in ["/admin", "/config", "/panel"]):
-            score += 2
-            reasons.append(f"Sensitive path accessible: {path}")
+            reasons.append(f"Critical file accessible (HTTP 200): {path}")
+        elif any(sensitive in path for sensitive in ["/admin", "/config", "/panel", "/actuator"]):
+            score += 3
+            reasons.append(f"Sensitive path accessible (HTTP 200): {path}")
 
     # 5. Dangerous open ports
     for p in data.get("ports", []):
